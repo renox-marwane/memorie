@@ -1,3 +1,4 @@
+const gameBoard = document.getElementById('gameBoard');
 const dimension =150;
 var random  = Math.random();
 var imgStart = Math.floor(random*100) +1;
@@ -20,4 +21,20 @@ for (let i =1;i<=8;i++){
         }
     }
    // console.log(`test ${dimension}`);
-   
+    function initGame(){
+        shuffle(cards);
+    }
+    console.log("avant:", cards);
+    shuffle(cards);
+    console.log("après:", cards);
+    cards.forEach(imgUrl => {
+        const card=document.createElement('div');
+        card.className='card';
+        card.dataset.value=imgUrl;
+        card.setAttribute('role','button');
+        card.setAttribute('tabindex','0');
+        gameBoard.appendChild(card);
+
+
+
+    })
